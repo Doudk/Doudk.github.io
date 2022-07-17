@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://doudk.github.io</id>
     <title>Gridea</title>
-    <updated>2022-07-17T18:34:32.354Z</updated>
+    <updated>2022-07-17T18:36:00.234Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://doudk.github.io"/>
     <link rel="self" href="https://doudk.github.io/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://doudk.github.io/images/avatar.png</logo>
     <icon>https://doudk.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[jpljp]]></title>
+        <id>https://doudk.github.io/post/jpljp/</id>
+        <link href="https://doudk.github.io/post/jpljp/">
+        </link>
+        <updated>2022-07-17T18:35:41.000Z</updated>
+        <content type="html"><![CDATA[<p>打发 爱的asda商店<br>
+暗色调</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://doudk.github.io/post/hello-gridea/</id>
