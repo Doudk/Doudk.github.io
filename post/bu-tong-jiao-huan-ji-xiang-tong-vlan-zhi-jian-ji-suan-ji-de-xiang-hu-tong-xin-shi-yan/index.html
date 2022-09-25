@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Mysql | 秋失叶的博客</title>
+<title>不同交换机相同VLAN之间计算机的相互通信实验 | 秋失叶的博客</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -18,7 +18,12 @@
 
 
 
-    <meta name="description" content="总之，先朝着目光能及的地方冲刺就好了">
+    <meta name="description" content="1.创建4个Vlan 10 20 30 99并分配10 20 30,命令如下
+Switch#conf t
+Switch(config)#vlan 10
+Switch(config-vlan)#exit
+Switch(config)#vlan..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -88,33 +93,55 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Mysql</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://doudk.github.io/post/mysql-ji-ben-ming-ling/">
-                  <h2 class="post-title">Mysql基本命令</h2>
-                </a>
-                <div class="post-date">
-                  2022-07-18
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-                <a class="right" href="https://doudk.github.io/post/mysql-ji-ben-ming-ling/">
-                  <div class="feature-container" style="background-image: url('https://doudk.github.io/post-images/mysql-ji-ben-ming-ling.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">不同交换机相同VLAN之间计算机的相互通信实验</h2>
+            <div class="post-date">2022-09-25</div>
+            
+            <div class="post-content" v-pre>
+              <p>1.创建4个Vlan 10 20 30 99并分配10 20 30,命令如下<br>
+Switch#conf t<br>
+Switch(config)#vlan 10<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#vlan 20<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#vlan 30<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#vlan 99<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#int range f0/1-9<br>
+Switch(config-if-range)#swit access vlan 10<br>
+Switch(config-if-range)#int range f0/10-19<br>
+Switch(config-if-range)#swit access vlan 20<br>
+Switch(config-if-range)#int range f0/20-24<br>
+Switch(config-if-range)#swit access vlan 30<br>
+Switch(config-if-range)#exit</p>
+<p>2.分配端口  G0/1,命令如下<br>
+Switch(config)#int g0/1<br>
+Switch(config-if)#swit access vlan 99<br>
+Switch(config-if)#exit</p>
+<p>3.把G0/1设成trunk ,命令如下<br>
+Switch(config)#int G0/1<br>
+Switch(config-if)#swit mode trunk</p>
+<p>4.把Vlan 99设成本征Vlan，命令如下<br>
+Switch(config)#int G0/1<br>
+Switch(config-if)#swit trunk native Vlan 99</p>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://doudk.github.io/post/mysql-ji-ben-ming-ling/">
+                  <h3 class="post-title">
+                    Mysql基本命令
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>

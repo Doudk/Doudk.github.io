@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://doudk.github.io</id>
     <title>秋失叶的博客</title>
-    <updated>2022-09-25T05:12:28.267Z</updated>
+    <updated>2022-09-25T06:06:11.929Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://doudk.github.io"/>
     <link rel="self" href="https://doudk.github.io/atom.xml"/>
@@ -10,6 +10,41 @@
     <logo>https://doudk.github.io/images/avatar.png</logo>
     <icon>https://doudk.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, 秋失叶的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[不同交换机相同VLAN之间计算机的相互通信实验]]></title>
+        <id>https://doudk.github.io/post/bu-tong-jiao-huan-ji-xiang-tong-vlan-zhi-jian-ji-suan-ji-de-xiang-hu-tong-xin-shi-yan/</id>
+        <link href="https://doudk.github.io/post/bu-tong-jiao-huan-ji-xiang-tong-vlan-zhi-jian-ji-suan-ji-de-xiang-hu-tong-xin-shi-yan/">
+        </link>
+        <updated>2022-09-25T05:15:29.000Z</updated>
+        <content type="html"><![CDATA[<p>1.创建4个Vlan 10 20 30 99并分配10 20 30,命令如下<br>
+Switch#conf t<br>
+Switch(config)#vlan 10<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#vlan 20<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#vlan 30<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#vlan 99<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#int range f0/1-9<br>
+Switch(config-if-range)#swit access vlan 10<br>
+Switch(config-if-range)#int range f0/10-19<br>
+Switch(config-if-range)#swit access vlan 20<br>
+Switch(config-if-range)#int range f0/20-24<br>
+Switch(config-if-range)#swit access vlan 30<br>
+Switch(config-if-range)#exit</p>
+<p>2.分配端口  G0/1,命令如下<br>
+Switch(config)#int g0/1<br>
+Switch(config-if)#swit access vlan 99<br>
+Switch(config-if)#exit</p>
+<p>3.把G0/1设成trunk ,命令如下<br>
+Switch(config)#int G0/1<br>
+Switch(config-if)#swit mode trunk</p>
+<p>4.把Vlan 99设成本征Vlan，命令如下<br>
+Switch(config)#int G0/1<br>
+Switch(config-if)#swit trunk native Vlan 99</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Mysql基本命令]]></title>
         <id>https://doudk.github.io/post/mysql-ji-ben-ming-ling/</id>
