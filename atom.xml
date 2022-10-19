@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://doudk.github.io</id>
+    <title>doudk_blok</title>
+    <updated>2022-10-19T14:22:40.674Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://doudk.github.io"/>
+    <link rel="self" href="https://doudk.github.io/atom.xml"/>
+    <subtitle>总之，向着目光能及的目标冲刺就好了！</subtitle>
+    <logo>https://doudk.github.io/images/avatar.png</logo>
+    <icon>https://doudk.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, doudk_blok</rights>
+    <entry>
+        <title type="html"><![CDATA[浮动静态路由]]></title>
+        <id>https://doudk.github.io/post/fu-dong-jing-tai-lu-you/</id>
+        <link href="https://doudk.github.io/post/fu-dong-jing-tai-lu-you/">
+        </link>
+        <updated>2022-10-19T13:24:08.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://doudk.github.io/post-images/1666185868496.png" alt="" loading="lazy"><br>
+(1)按照地址规划为路由器端口以及PC配置相应的网络参数<br>
+R2：<br>
+<img src="https://doudk.github.io/post-images/1666187735316.png" alt="" loading="lazy"><br>
+<img src="https://doudk.github.io/post-images/1666188010936.png" alt="" loading="lazy"><br>
+R3:<br>
+<img src="https://doudk.github.io/post-images/1666188078996.png" alt="" loading="lazy"></p>
+<p>(2)在路由器R2上配置静态路由以及浮动静态路由<br>
+<img src="https://doudk.github.io/post-images/1666188735534.png" alt="" loading="lazy"><br>
+(3)在路由器R3上配置静态路由以及浮动静态路由<br>
+<img src="https://doudk.github.io/post-images/1666188928535.png" alt="" loading="lazy"></p>
+<p>(4)ping<br>
+<img src="https://doudk.github.io/post-images/1666189026814.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[直连路由与静态路由技术]]></title>
+        <id>https://doudk.github.io/post/zhi-lian-lu-you-yu-jing-tai-lu-you-ji-zhu/</id>
+        <link href="https://doudk.github.io/post/zhi-lian-lu-you-yu-jing-tai-lu-you-ji-zhu/">
+        </link>
+        <updated>2022-10-15T13:02:27.000Z</updated>
+        <content type="html"><![CDATA[<p>R1:<br>
+Router#conf t<br>
+Router(config)#int f0/0<br>
+Router(config-if)#ip address 192.168.1.254 255.255.255.0<br>
+Router(config-if)#no shut<br>
+Router(config-if)#exit<br>
+Router(config)#int f0/1<br>
+Router(config-if)#ip address 192.168.2.254 255.255.255.0<br>
+Router(config-if)#no shut<br>
+Router(config-if)#exit<br>
+Router(config)#ip route 192.168.3.0 255.255.255.0 f0/1<br>
+Router#show ip route</p>
+<p>R2：<br>
+Router#conf t<br>
+Router(config)#int f0/0<br>
+Router(config-if)#ip address 192.168.3.254 255.255.255.0<br>
+Router(config-if)#no shut<br>
+Router(config-if)#exit<br>
+Router(config)#int f0/1<br>
+Router(config-if)#ip address 192.168.2.254 255.255.255.0<br>
+Router(config-if)#no shut<br>
+Router(config-if)#exit<br>
+Router(config)#ip route 192.168.1.0 255.255.255.0 f0/1<br>
+Router#show ip route</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[交换机端口聚合]]></title>
+        <id>https://doudk.github.io/post/jiao-huan-ji-duan-kou-ju-he/</id>
+        <link href="https://doudk.github.io/post/jiao-huan-ji-duan-kou-ju-he/">
+        </link>
+        <updated>2022-10-15T12:42:50.000Z</updated>
+        <content type="html"><![CDATA[<p>手动方式<br>
+交换机S0的g1/1和g1/2口分别和交换机S1的g1/1和g1/2口相级联。要求将两台交换机的G1/1和G1/2进行端口聚合。<br>
+S0:<br>
+Switch#conf t<br>
+Switch(config)#int range g0/1-2<br>
+Switch(config-if-range)#channel-protocol pagp<br>
+Switch(config-if-range)#channel-group 1 mode on<br>
+Switch(config-if-range)#exit<br>
+Switch(config-if-range)#exit<br>
+Switch(config)#int port-channel 1<br>
+Switch(config-if)#swit mode trunk</p>
+<p>S1:<br>
+Switch#conf t<br>
+Switch(config)#int range g0/1-2<br>
+Switch(config-if-range)#channel-protocol pagp<br>
+Switch(config-if-range)#channel-group 1 mode on<br>
+Switch(config-if-range)#exit<br>
+Switch(config-if-range)#exit<br>
+Switch(config)#int port-channel 1<br>
+Switch(config-if)#swit mode trunk</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第四章 Shell数组]]></title>
+        <id>https://doudk.github.io/post/di-si-zhang-shell-shu-zu/</id>
+        <link href="https://doudk.github.io/post/di-si-zhang-shell-shu-zu/">
+        </link>
+        <updated>2022-10-13T13:31:45.000Z</updated>
+        <content type="html"><![CDATA[<p>4.3 Shell数组的定义<br>
+4.3.1直接定义数组<br>
+<img src="https://doudk.github.io/post-images/1665668784775.png" alt="" loading="lazy"></p>
+<p>4.3.3间接定义数组<br>
+<img src="https://doudk.github.io/post-images/1665669049227.png" alt="" loading="lazy"></p>
+<p>4.4 Shell数组的遍历及赋值</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[利用PVST实现网络负载均衡]]></title>
+        <id>https://doudk.github.io/post/li-yong-pvst-shi-xian-wang-luo-fu-zai-jun-heng/</id>
+        <link href="https://doudk.github.io/post/li-yong-pvst-shi-xian-wang-luo-fu-zai-jun-heng/">
+        </link>
+        <updated>2022-10-10T14:33:22.000Z</updated>
+        <content type="html"><![CDATA[<p>S1:设置服务端、服务域以及将四个端口设成trunk模式<br>
+Switch#conf t<br>
+Switch(config)#vtp mode server    //设置服务端<br>
+Switch(config)#vtp domain nnxy   //设置服务域<br>
+Switch(config)#vtp password 123456   //设置密码<br>
+Switch(config)#vlan 10<br>
+Switch(config-vlan)exit<br>
+Switch(config)#vlan 20<br>
+Switch(config-vlan)exit<br>
+Switch(config)#vlan 30<br>
+Switch(config-vlan)end<br>
+Switch#conf t<br>
+Switch(config)#int range f0/1-4<br>
+Switch(config-if-range)#swit mode trunk //将四个端口设成trunk模式</p>
+<p>S2:设置客户端、域<br>
+Switch#conf t<br>
+Switch(config)#int range f0/1-4<br>
+Switch(config-if-range)#swit mode trunk //将四个端口设成trunk模式<br>
+Switch(config-if-range)#exit<br>
+Switch(config)#vtp mode client //设置客户端<br>
+Switch(config)#vtp domain nnxy 设置域<br>
+Switch(config)#vtp password 123456   //设置密码<br>
+Switch(config)#end</p>
+<p>S3:设置客户端、域<br>
+Switch#conf t<br>
+Switch(config)#int range f0/1-4<br>
+Switch(config-if-range)#swit mode trunk //将四个端口设成trunk模式<br>
+Switch(config-if-range)#exit<br>
+Switch(config)#vtp mode client //设置客户端<br>
+Switch(config)#vtp domain nnxy 设置域<br>
+Switch(config)#vtp password 123456   //设置密码<br>
+Switch(config)#end</p>
+<p>S1://对S1分配端口<br>
+Switch#conf t<br>
+Switch(config)#int range f0/6-10   //分配端口<br>
+Switch(config-if-range)#swit access vlan 10<br>
+Switch(config-if-range)#int range f0/11-17<br>
+Switch(config-if-range)#swit access vlan 20<br>
+Switch(config-if-range)#int range f0/18-24<br>
+Switch(config-if-range)#swit access vlan 30</p>
+<p>S2://对S2分配端口<br>
+Switch#conf t<br>
+Switch(config)#int range f0/6-10   //分配端口<br>
+Switch(config-if-range)#swit access vlan 10<br>
+Switch(config-if-range)#int range f0/11-17<br>
+Switch(config-if-range)#swit access vlan 20<br>
+Switch(config-if-range)#int range f0/18-24<br>
+Switch(config-if-range)#swit access vlan 30</p>
+<p>S1:将vlan10的优先级调为最高，vlan20为备用<br>
+Switch#conf t<br>
+Switch(config)#spanning-tree vlan 10 priority 4096<br>
+Switch(config)#spanning-tree vlan 20 priority 16384</p>
+<p>S2:将vlan20的优先级调为最高，vlan30为备用<br>
+Switch#conf t<br>
+Switch(config)#spanning-tree vlan 20 priority 4096<br>
+Switch(config)#spanning-tree vlan 30 priority 16384</p>
+<p>S3:将vlan30的优先级调为最高，vlan10为备用<br>
+Switch#conf t<br>
+Switch(config)#spanning-tree vlan 30 priority 4096<br>
+Switch(config)#spanning-tree vlan 10 priority 16384</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[交换机VTP技术]]></title>
+        <id>https://doudk.github.io/post/jiao-huan-ji-vtp-ji-zhu/</id>
+        <link href="https://doudk.github.io/post/jiao-huan-ji-vtp-ji-zhu/">
+        </link>
+        <updated>2022-09-30T03:59:58.000Z</updated>
+        <content type="html"><![CDATA[<p>Switch1:<br>
+Switch#conf t<br>
+Switch(config)#exit<br>
+Switch#vlan database<br>
+Switch(vlan)#vtp server       //设置服务器端<br>
+Switch(vlan)#vtp domain nnxy   //创建管理域和密码<br>
+Switch(vlan)#vtp password 123456<br>
+Switch(vlan)#vlan 10  //创建vlan<br>
+Switch(vlan)#vlan 20<br>
+Switch(vlan)#vlan 30<br>
+Switch(vlan)#end<br>
+Switch#conf t             //连接的两个端口做成trunk模式<br>
+Switch#(config)#int range g0/1-2<br>
+Switch#(config-if-range)#swit mode trunk</p>
+<p>Switch2:<br>
+Switch#conf t<br>
+Switch(config)#int  g0/1   //连接的端口做成trunk模式<br>
+Switch(config-if)#swit mode trunk<br>
+Switch(config-if)#end<br>
+Switch(vlan)#vtp client   //设置成客户端<br>
+Switch(vlan)#vtp domain nnxy<br>
+Switch(vlan)#vtp password 123456<br>
+Switch(vlan)#end<br>
+Switch#conf t<br>
+Switch(config)#int range f0/1-9    //分配端口<br>
+Switch(config-if-range)#swit access vlan 10<br>
+Switch(config-if-range)#int range f0/10-19<br>
+Switch(config-if-range)#swit access vlan 20<br>
+Switch(config-if-range)#int range f0/20-24<br>
+Switch(config-if-range)#swit access vlan 30</p>
+<p>Switch3:<br>
+Switch#conf t<br>
+Switch(config)#int  g0/2   //连接的端口做成trunk模式<br>
+Switch(config-if)#swit mode trunk<br>
+Switch(config-if)#end<br>
+Switch(vlan)#vtp client   //设置成客户端<br>
+Switch(vlan)#vtp domain nnxy<br>
+Switch(vlan)#vtp password 123456<br>
+Switch(vlan)#end<br>
+Switch#conf t<br>
+Switch(config)#int range f0/1-9    //分配端口<br>
+Switch(config-if-range)#swit access vlan 10<br>
+Switch(config-if-range)#int range f0/10-19<br>
+Switch(config-if-range)#swit access vlan 20<br>
+Switch(config-if-range)#int range f0/20-24<br>
+Switch(config-if-range)#swit access vlan 30</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[git基本命令]]></title>
+        <id>https://doudk.github.io/post/git-ji-ben-ming-ling/</id>
+        <link href="https://doudk.github.io/post/git-ji-ben-ming-ling/">
+        </link>
+        <updated>2022-09-29T13:38:52.000Z</updated>
+        <content type="html"><![CDATA[<p>提交暂存区 拉取到工作目录<br>
+git add files //git checkout<br>
+提交本地仓库 从本地仓库拉取到暂存区<br>
+git commit -m //git reset<br>
+提交远程仓库 拉取代码到本地仓库<br>
+git push //git pull</p>
+<p>克隆远程仓库<br>
+git clone 仓库地址</p>
+<p>1）、cd : 改变目录。</p>
+<p>2）、cd . . 回退到上一个目录，直接cd进入默认目录</p>
+<p>3）、pwd : 显示当前所在的目录路径。</p>
+<p>4）、ls(ll): 都是列出当前目录中的所有文件，只不过ll(两个ll)列出的内容更为详细。</p>
+<p>5）、touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。</p>
+<p>6）、rm: 删除一个文件, rm index.js 就会把index.js文件删除。</p>
+<p>7）、mkdir: 新建一个目录,就是新建一个文件夹。</p>
+<p>8）、rm -r : 删除一个文件夹, rm -r src 删除src目录</p>
+<p>rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！<br>
+9）、mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,必须保证文件和目标文件夹在同一目录下。</p>
+<p>10）、reset 重新初始化终端/清屏。</p>
+<p>11）、clear 清屏。</p>
+<p>12）、history 查看命令历史。</p>
+<p>13）、help 帮助。</p>
+<p>14）、exit 退出。</p>
+<p>15）、#表示注释</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mysql基本命令]]></title>
+        <id>https://doudk.github.io/post/mysql-ji-ben-ming-ling/</id>
+        <link href="https://doudk.github.io/post/mysql-ji-ben-ming-ling/">
+        </link>
+        <updated>2022-09-29T13:36:54.000Z</updated>
+        <content type="html"><![CDATA[<p>一：常见约束<br>
+NOT NULL：非空，用于保证该字段的值不能为空<br>
+比如姓名、学号等</p>
+<p>DEFAULT：默认，用于保证该字段有默认值<br>
+比如性别</p>
+<p>PRIMARY KEY:主键，用于保证该字段的值具有唯一性，并且非空<br>
+比如学号、员工编号</p>
+<p>UNIQUE:唯一，用于保证该字段的值具有唯一性，可以为空<br>
+比如座位号</p>
+<p>CHECK:检查约束//!</p>
+<p>FOREIGN KEY :外键，用于限制两个表的关系，用于保证该字段的值必须来自于主表的关联的值。<br>
+比如学生表的专业编号，员工的部门编号，员工表的工种编号</p>
+<p>二：数据库基本操作<br>
+1：显示数据库<br>
+show databases</p>
+<p>2:进入数据库<br>
+use 库名;//例如 use test;</p>
+<p>3：显示数据库的表<br>
+show tables;</p>
+<p>3.5：创建数据库<br>
+create database 库名 default charset utf8 collate utf8_general_ci;</p>
+<p>4：显示其他库的表<br>
+show tables from 库名;//例如 show tables from mysql</p>
+<p>5：显示位于哪个库<br>
+select database();</p>
+<p>6:创建表<br>
+create table stuinfo(<br>
+-&gt;id int,//字段 类型<br>
+-&gt;name varchar(20));</p>
+<p>7修改表名<br>
+alter table 旧表名 rename to 新表名;</p>
+<p>8修改字段的数据类型<br>
+alter table 表名 modify 字段名 数据类型;</p>
+<p>9修改字段名<br>
+alter table 表名 change 旧字段名 新字段名 新数据类型;</p>
+<p>10添加字段<br>
+alter table 表名 add 新字段名 新数据类型;</p>
+<p>11删除字段<br>
+alter table 表名 drop 字段名；</p>
+<p>12修改字段的排列位置<br>
+alter table 表名 modify 字段 数据类型 after 字段；</p>
+<p>13:删除表<br>
+drop table if exists 表名;</p>
+<p>14:约束<br>
+primary key//主键<br>
+not null//非空<br>
+default//默认<br>
+unique//唯一</p>
+<p>15:查看表中索引<br>
+show index from 表名;</p>
+<p>16:添加表级约束</p>
+<p>create table 表名(<br>
+id int,<br>
+stuname varchar(20),<br>
+gender char(1),<br>
+seat int,<br>
+age int,<br>
+majorid int,</p>
+<p>复制代码<br>
+primary key(id),#主键<br>
+unique(seat),#唯一键<br>
+default(age) 18,#默认<br>
+check(gender='男'or gender = '女'),#检查<br>
+[constraint fk_stuinfo_major]  foreign key(majorid) references major(id)#外键<br>
+);</p>
+<p>17:修改表时添加约束:</p>
+<p>alter table 表名 modify column 表名 类型 约束;//列级</p>
+<p>alter table 表名 add 约束(字段);//表级约束</p>
+<p>alter table 表名 add [constraint 外键名] foreign key(字段) references 主表(字段);//添加外键</p>
+<p>18:修改表时删除约束<br>
+alter table 表名 modify column 表名 类型;<br>
+alter table 表名 drop 约束;<br>
+alter table 表名 drop foreign key 外键名;<br>
+alter table 表名 drop index 唯一键名;//show index from 表名查看</p>
+<p>19:查看表的结构<br>
+desc 表名; //例如 desc stuinfo;</p>
+<p>20:查看表的数据<br>
+select * from 表名//例如 select * from stuinfo;查询的为整表的数据字段</p>
+<p>21:查询单个字段<br>
+select 字段名 from 表名;</p>
+<p>22:查询多个字段<br>
+select 字段名，字段名，字段名 from 表名;</p>
+<p>23:插入数据<br>
+insert into 表名 (字段) values(值);//</p>
+<p>24:修改数据<br>
+update 表名 set 列名='修改数据' where name like '%';<br>
+update 表名 set 列名='修改数据',列名='修改数据' where id=2;</p>
+<p>25:删除数据<br>
+delete from 表名 where id=1;</p>
+<p>26 复合查询<br>
+select * from where id=1 and price&gt;100;</p>
+<p>27使用别名指定列<br>
+select g_number as 商品号,g_name as 商品名称 from goods;</p>
+<p>28模糊查询<br>
+select * from goods where g_name like '%520%';</p>
+<p>29等值连接<br>
+select g_name,g_price,o_number,o_date from goods,orderdetails where orderdetails.g_ID=goods.g_number;//查询所有订单中订购的商品信息和日期。</p>
+<p>30外连接<br>
+左外连接，left join左边的是主表<br>
+右外连接，right join右边的是主表<br>
+select good.s_sids,good.s_snames,goods.g_number,goods.g_name,goods.g_price from good left outer join goods on good.s_sids=g_sids;<br>
+//了解所有商品类别以及其对应的商品信息。</p>
+<p>31升序、降序<br>
+order by 字段 asc,字段 desc;</p>
+<p>32 IN子查询<br>
+select g_number ,g_name,g_sids from goods where g_number in(<br>
+select g_number from goods where g_sids in(02)<br>
+);//了解和02类别号为同类商品的商品号、商品名称和订单总金额;</p>
+<p>32EXISTS的子查询<br>
+select os_sid,os_date,os_time from orders where exists(select * from employees where u_state=os_state and os_post=u_post);<br>
+//针对EMPLOYEES表中员工，在ORDERS表中查找处理过订单并送货模式为邮寄的所有订单信息。</p>
+<p>33复合索引<br>
+创建联合索引的语法：create index 索引名 on 表名（字段名1，字段名2）</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第一章 初识Shell]]></title>
+        <id>https://doudk.github.io/post/shell-bian-liang-de-fu-zhi-19/</id>
+        <link href="https://doudk.github.io/post/shell-bian-liang-de-fu-zhi-19/">
+        </link>
+        <updated>2022-09-29T13:35:50.000Z</updated>
+        <content type="html"><![CDATA[<p>1.9 Shell变量的赋值<br>
+1.9.2 从键盘读入赋值<br>
+在Shell脚本中Shell变量可以通过从键盘读入输入的内容来赋值。命令格式为：<br>
+read -p [提示信息]: [变量名]<br>
+[root@tianyun~]#vim ping2.sh<br>
+#!/bin/bash<br>
+read -p &quot;input ip:&quot; ip<br>
+ping -c2 $ip &amp;&gt;/dev/null<br>
+if [ $? == 0 ];then<br>
+echo &quot;host $ip is ok&quot;<br>
+else<br>
+echo &quot;host $ip is fall&quot;</p>
+<p>1.10 Shell变量的运算<br>
+1.10.1expr数值运算命令<br>
+expr命令既可以用于整数运算，也可以用于字符串长度、匹配等运算处理。语法格式为expr命令加表达式<br>
+运算符及用于计算的数字两边必须有空格<br>
+<img src="https://doudk.github.io/post-images/1665666710229.png" alt="" loading="lazy"></p>
+<p>1.10.2 （（））或【】数值运算命令<br>
+作用是进行整数运算和数值比较，需要直接输出运算表达式的运算结果时，可以在（（））前加$符。<br>
+<img src="https://doudk.github.io/post-images/1665667110682.png" alt="" loading="lazy"></p>
+<p>1.10.3 let数值运算命令<br>
+let数值符号可以直接进行计算，且不带回显功能，也就是说不再使用$引用变量。<br>
+<img src="https://doudk.github.io/post-images/1665667531157.png" alt="" loading="lazy"><br>
+unset sum为取消sum变量</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[跨交换机基于端口VLAN的划分方法]]></title>
+        <id>https://doudk.github.io/post/kua-jiao-huan-ji-ji-yu-duan-kou-vlan-de-hua-fen-fang-fa/</id>
+        <link href="https://doudk.github.io/post/kua-jiao-huan-ji-ji-yu-duan-kou-vlan-de-hua-fen-fang-fa/">
+        </link>
+        <updated>2022-09-29T13:34:04.000Z</updated>
+        <content type="html"><![CDATA[<p>1.创建4个Vlan 10 20 30 99并分配10 20 30,命令如下<br>
+Switch#conf t<br>
+Switch(config)#vlan 10<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#vlan 20<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#vlan 30<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#vlan 99<br>
+Switch(config-vlan)#exit<br>
+Switch(config)#int range f0/1-9<br>
+Switch(config-if-range)#swit access vlan 10<br>
+Switch(config-if-range)#int range f0/10-19<br>
+Switch(config-if-range)#swit access vlan 20<br>
+Switch(config-if-range)#int range f0/20-24<br>
+Switch(config-if-range)#swit access vlan 30<br>
+Switch(config-if-range)#exit</p>
+<p>2.分配端口 G0/1,命令如下<br>
+Switch(config)#int g0/1<br>
+Switch(config-if)#swit access vlan 99<br>
+Switch(config-if)#exit</p>
+<p>3.把G0/1设成trunk ,命令如下<br>
+Switch(config)#int G0/1<br>
+Switch(config-if)#swit mode trunk</p>
+<p>4.把Vlan 99设成本征Vlan，命令如下<br>
+Switch(config)#int G0/1<br>
+Switch(config-if)#swit trunk native Vlan 99</p>
+]]></content>
+    </entry>
+</feed>
